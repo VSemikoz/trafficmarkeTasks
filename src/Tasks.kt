@@ -8,11 +8,11 @@ class Task1 {
         fun simpleReverse(str: String): String = str.reversed()
 
         fun cycledReverse(str: String): String {
-            var result = ""
+            var reversedString = ""
             str.forEach { c ->
-                result = "$c$result"
+                reversedString = "$c$reversedString"
             }
-            return result
+            return reversedString
         }
     }
 }
@@ -23,24 +23,24 @@ class Task2 {
     companion object {
 
         fun countLetters(str: String): Int = with(str) {
-            var result = getNumberOfLetter("a")
-            result *= getNumberOfLetter("drtf")
-            result += getNumberOfLetter("e")
-            result *= getNumberOfLetter("lm")
-            result -= getNumberOfLetter(" ")
-            result *= getNumberOfLetter("a")
-            result += getNumberOfLetter("lm")
-            result
+            var counter = getNumberOfLetter("a")
+            counter *= getNumberOfLetter("drtf")
+            counter += getNumberOfLetter("e")
+            counter *= getNumberOfLetter("lm")
+            counter -= getNumberOfLetter(" ")
+            counter *= getNumberOfLetter("a")
+            counter += getNumberOfLetter("lm")
+            counter
         }
 
         /**     extension function to count chars in string */
         private fun String.getNumberOfLetter(cs: CharSequence): Int {
-            var result = 0
+            var countOfLetters = 0
             return with(this) {
                 forEach { c ->
-                    result += cs.count { it == c }
+                    countOfLetters += cs.count { it == c }
                 }
-                result
+                countOfLetters
             }
         }
 
